@@ -23,6 +23,5 @@ This repository contains custom-built detection rules designed for use with SIEM
   ```
 
 ## 🎯 Author
-- Name: Your Name
-- LinkedIn: [Your LinkedIn Profile]
-- Blog: [Your Blog if any]
+- Name: Haris Ali
+- LinkedIn: [www.linkedin.com/in/harisali-cyberdude]
