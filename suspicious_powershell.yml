@@ -1,0 +1,21 @@
+title: Suspicious PowerShell Command Execution
+id: d3e4f250-6c30-11eb-9439-0242ac130002
+description: Detects suspicious PowerShell commands such as IEX or DownloadString
+status: stable
+author: yourname
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '\powershell.exe'
+    CommandLine|contains:
+      - 'Invoke-Expression'
+      - 'DownloadString'
+      - 'IEX'
+  condition: selection
+fields:
+  - CommandLine
+falsepositives:
+  - Legitimate admin scripts
+level: high

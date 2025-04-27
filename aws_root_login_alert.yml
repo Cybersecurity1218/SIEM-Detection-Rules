@@ -1,0 +1,19 @@
+title: AWS Root Account Login
+id: b6e4f252-7c30-12ab-1234-ac1300020011
+description: Detects login to AWS using root account credentials
+status: stable
+author: yourname
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventName: ConsoleLogin
+    userIdentity.type: Root
+  condition: selection
+fields:
+  - sourceIPAddress
+  - eventTime
+falsepositives:
+  - Expected activity (if documented)
+level: high

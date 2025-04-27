@@ -1,0 +1,19 @@
+title: SSH Brute Force Detection
+id: a41f8ba6-9d13-11eb-a8b3-0242ac130003
+description: Detects multiple failed SSH authentication attempts from a single IP
+status: stable
+author: yourname
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    status: "failed"
+  timeframe: 10m
+  condition: selection | count(source_ip) by source_ip > 5
+fields:
+  - source_ip
+  - username
+falsepositives:
+  - User typing mistakes
+level: medium
